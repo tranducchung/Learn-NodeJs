@@ -1,0 +1,15 @@
+extends ../layout/common.pug
+block header
+    div
+        div
+            h2 Data User
+            a(href="/users/create") Create new user
+            form(action="users/search/", method = "GET")
+                input(type="text", name='q', value=valueQuery, class = 'input-group-text')
+                button(class = 'btn btn-primary') Search
+        div
+            each user, index in users
+                h2 User #{index + 1}
+                h3 UserName: #{user.name}
+                h3 Password: #{user.password}
+                a(href=`users/${user.id}`) View Detail

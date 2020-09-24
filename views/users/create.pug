@@ -1,0 +1,16 @@
+extends ../layout/common.pug
+block header
+    h1 Create New User
+    if errors
+        each error in errors
+            div(class='alert alert-danger') #{error}
+    form(action="/users/create", method="POST")
+        label Name
+        br
+        input(type="text", name='valueName', value= valueBody ? valueBody.name : "")
+        br
+        label Password
+        br
+        input(type="text", name='valuePassword', value= valueBody ? valueBody.password : "")
+        br
+        button(class='btn btn-primary') Create
